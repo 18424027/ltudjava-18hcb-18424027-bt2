@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<!--    <class catalog="qlsinhvien" name="pojo.SinhVien" table="sinhvien">
+        <id name="mSSV" type="string">
+            <column length="8" name="MSSV"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="hoTen" type="string">
+            <column length="64" name="HoTen"/>
+        </property>
+        <property name="goiTinh" type="string">
+            <column length="16"name="GoiTinh"/>
+        </property>
+        <property name="cMND" type="string">
+            <column length="16" name="CMND"/>
+        </property>
+    </class>-->
+    <class catalog="qlsinhvien" name="pojo.SinhVien" table="sinhvien">
+    <id name="MSSV" type="string">
+        <column length="8" name="MSSV"/>
+        <generator class="assigned"></generator>
+    </id>
+            
+    <property name="HoTen"></property>
+    <property name="GioiTinh"></property>
+    <property name="CMND"></property>
+            
+  </class>
+</hibernate-mapping>
