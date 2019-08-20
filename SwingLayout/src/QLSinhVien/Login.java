@@ -12,10 +12,13 @@ import java.awt.ComponentOrientation;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -23,10 +26,11 @@ import javax.swing.JTextField;
  *
  * @author hieu
  */
-public class Login {
+public class Login implements ActionListener {
     public static boolean RIGHT_TO_LEFT = false;
+    JButton btnLogin;
     
-    public static void addComponentToPane(Container pane) {
+    public void addComponentToPane(Container pane) {
         if (!(pane.getLayout() instanceof BorderLayout)) {
             pane.add(new JLabel("Container doesn't use BorderLayout!"));
             return;
@@ -57,6 +61,8 @@ public class Login {
 //        pane.add(button, BorderLayout.LINE_START);
 
         JButton button = new JButton("Login");
+        button.setActionCommand("Login");
+        button.addActionListener(this);
         pane.add(button, BorderLayout.PAGE_END);
 
 //        button = new JButton("5 (LINE_END)");
@@ -83,31 +89,14 @@ public class Login {
         txtUser.setPreferredSize(new Dimension(200, 20));
         contentPane.add(txtUser);
     }
-
-    private static void addAButton(String text, Container container) {
-        JButton button = new JButton(text);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        container.add(button);
-    }
-    
-    private static void addTextBox(String text, Container container){
-        JTextField textfield = new JTextField(text);
-        textfield.setAlignmentX(Component.CENTER_ALIGNMENT);
-        container.add(textfield);
-    }
     private static void addPanelImput(String text,Container container){
         JPanel panel = new JPanel();
         addComponentInput(text,panel);
         panel.setAlignmentX(Component.CENTER_ALIGNMENT);
         container.add(panel);
     }
-
-    /**
-     * Create the GUI and show it.  For thread safety,
-     * this method should be invoked from the
-     * event-dispatching thread.
-     */
-    private static void createAndShowGUI() {
+    
+    private void createAndShowGUI() {
         //Make sure we have nice window decorations.
         JFrame.setDefaultLookAndFeelDecorated(true);
 
@@ -125,12 +114,20 @@ public class Login {
     
 
     public static void main(String[] args) {
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
+        new Login();
+    }
+    
+    public Login(){
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowGUI();
             }
         });
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getActionCommand().equals("Login"))
+            JOptionPane.showMessageDialog(btnLogin, "Login");
     }
 }
