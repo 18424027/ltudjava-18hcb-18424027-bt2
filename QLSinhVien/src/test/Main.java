@@ -29,13 +29,13 @@ public class Main {
 
 //<editor-fold defaultstate="collapsed" desc="1. Lấy danh sách sinh viên ">
         List<LopHoc> dslh = LopHocDAO.layDanhSachLopHoc();
-        for (int i = 0; i < ds.size(); i++) {
+        for (int i = 0; i < dslh.size(); i++) {
             LopHoc lh = dslh.get(i);
             System.out.println("MaLop: " + lh.getMaLop());
         }
         
         List<PhucKhao> dspk = PhucKhaoDAO.GetAll();
-        for (int i = 0; i < ds.size(); i++) {
+        for (int i = 0; i < dslh.size(); i++) {
             PhucKhao pk = dspk.get(i);
             System.out.println("TuNgay: " + pk.getTuNgay());
             System.out.println("DenNgay: " + pk.getDenNgay());
@@ -43,7 +43,7 @@ public class Main {
         }
         
         List<HocKy> dshk = HocKyDAO.GetAll();
-        for (int i = 0; i < ds.size(); i++) {
+        for (int i = 0; i < dshk.size(); i++) {
             HocKy hk = dshk.get(i);
             System.out.println("TenHocKy: " + hk.getTenHocKy());
             System.out.println("TuNgay: " + hk.getTuNgay());
@@ -52,18 +52,26 @@ public class Main {
         }
         
         List<MonHoc> dsmh = MonHocDAO.GetAll();
-        for (int i = 0; i < ds.size(); i++) {
+        for (int i = 0; i < dsmh.size(); i++) {
             MonHoc mh = dsmh.get(i);
             System.out.println("MaMon: " + mh.getMaMon());
             System.out.println("TenMon: " + mh.getTenMon());
         }
         
         List<HocKy_MonHoc> dshkmh = HocKy_MonHocDAO.GetAll();
-        for (int i = 0; i < ds.size(); i++) {
+        for (int i = 0; i < dshkmh.size(); i++) {
             HocKy_MonHoc hkmh = dshkmh.get(i);
             System.out.println("HocKy: " + hkmh.getHocKyId());
             System.out.println("MonHoc: " + hkmh.getMonHocId());
             System.out.println("PhongHoc: " + hkmh.getPhongHoc());
+        }
+        
+        List<HocKyMonHoc_has_SinhVien> dshkmhsv = HocKyMonHoc_has_SinhVienDAO.GetAll();
+        for (int i = 0; i < dshkmhsv.size(); i++) {
+            HocKyMonHoc_has_SinhVien hkmhsv = dshkmhsv.get(i);
+            System.out.println("HocKyMonHoc: " + hkmhsv.getHocKy_MonHoc_Id());
+            System.out.println("SịnhVien: " + hkmhsv.getSinhVienId());
+            System.out.println("DiemTong: " + hkmhsv.getDiemTong());
         }
     }
 }

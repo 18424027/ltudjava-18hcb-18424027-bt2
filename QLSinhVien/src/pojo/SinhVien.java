@@ -14,9 +14,10 @@ public class SinhVien implements java.io.Serializable {
     private Integer Id;
     private String MSSV;
     private String HoTen;
-    private String GioiTinh;
+    private Integer GioiTinh;
     private String CMND;
-    private Integer LopHocId;
+//    private Integer LopHocId;
+    private LopHoc LopHoc;
 
     public SinhVien() {
     }
@@ -25,13 +26,18 @@ public class SinhVien implements java.io.Serializable {
         this.Id = id;
     }
 
-    public SinhVien(Integer id, String mSSV, String hoTen, String gioiTinh, String cMND, Integer lopHocId) {
+    public SinhVien(Integer id, LopHoc LopHoc) {
+        this.Id = id;
+        this.LopHoc = LopHoc;
+    }
+
+    public SinhVien(Integer id, String mSSV, String hoTen, Integer gioiTinh, String cMND, LopHoc lopHocId) {
         this.Id = id;
         this.MSSV = mSSV;
         this.HoTen = hoTen;
         this.GioiTinh = gioiTinh;
         this.CMND = cMND;
-        this.LopHocId = lopHocId;
+        this.LopHoc = lopHocId;
     }
 
     public Integer getId() {
@@ -41,6 +47,7 @@ public class SinhVien implements java.io.Serializable {
     public void setId(Integer id) {
         this.Id = id;
     }
+
     public String getMSSV() {
         return this.MSSV;
     }
@@ -57,11 +64,11 @@ public class SinhVien implements java.io.Serializable {
         this.HoTen = hoTen;
     }
 
-    public String getGioiTinh() {
+    public Integer getGioiTinh() {
         return this.GioiTinh;
     }
 
-    public void setGioiTinh(String gioiTinh) {
+    public void setGioiTinh(Integer gioiTinh) {
         this.GioiTinh = gioiTinh;
     }
 
@@ -72,11 +79,20 @@ public class SinhVien implements java.io.Serializable {
     public void setCMND(String cMND) {
         this.CMND = cMND;
     }
-    public Integer getLopHocId() {
-        return this.LopHocId;
+
+//    public Integer getLopHocId() {
+//        return this.LopHocId;
+//    }
+//
+//    public void setLopHocId(Integer lopHocId) {
+//        this.LopHocId = lopHocId;
+//    }
+
+    public LopHoc getLopHoc() {
+        return this.LopHoc;
     }
 
-    public void setLopHocId(Integer lopHocId) {
-        this.LopHocId = lopHocId;
+    public void setLopHoc(LopHoc LopHoc) {
+        this.LopHoc = LopHoc;
     }
 }

@@ -23,5 +23,6 @@
         <mapping resource="pojo/HocKy.hbm.xml"/>
         <mapping resource="pojo/MonHoc.hbm.xml"/>
         <mapping resource="pojo/HocKy_MonHoc.hbm.xml"/>
+        <mapping resource="pojo/HocKyMonHoc_has_SinhVien.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
